@@ -2,8 +2,11 @@ name: Build Debug APK
 
 on:
   push:
-    branches: pull_request:
-    branches: jobs:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
   build:
     runs-on: ubuntu-latest
 
@@ -13,7 +16,7 @@ on:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.x'  # твоя версия, или latest
+          flutter-version: '3.24.x'
           channel: 'stable'
 
       - name: Install dependencies
